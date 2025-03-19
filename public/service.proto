@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service SearchService {
+  rpc SearchHadis (SearchRequest) returns (SearchResponse);
+}
+
+message SearchRequest {
+  string index_files = 1; // Daftar file indeks yang tersedia
+  int32 num_workers = 2;  // Jumlah worker aktif
+  int32 n = 3;            // Jumlah hasil maksimal
+  string query = 4;       // Query pencarian
+}
+
+message SearchResponse {
+  repeated string results = 1; // Daftar hasil pencarian
+}
